@@ -1,0 +1,43 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark primary-color" [containerInside]="false">
+
+  <!-- Navbar brand -->
+  <mdb-navbar-brand><a class="navbar-brand" href="#">Network of Giving</a></mdb-navbar-brand>
+
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link waves-light" *ngIf="isLoggedIn" mdbBtn color="info" routerLink="create" mdbWavesEffect>Create
+          Charity</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link waves-light" *ngIf="!isLoggedIn" routerLink="login" mdbWavesEffect>
+          <mdb-icon far icon="user"></mdb-icon>Login
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link waves-light" *ngIf="!isLoggedIn" routerLink="signup" mdbWavesEffect>
+          <mdb-icon fas icon="user"></mdb-icon> Register
+        </a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <a class="nav-link waves-light" routerLink="profile">Hi, {{user}}</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <a class="nav-link waves-light" mdbWavesEffect (click)="onLogout()">
+          <mdb-icon fas icon="sign-in-alt"></mdb-icon> Logout
+        </a>
+      </li>
+    </ul>
+    <!-- Links -->
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->
+<router-outlet></router-outlet>
